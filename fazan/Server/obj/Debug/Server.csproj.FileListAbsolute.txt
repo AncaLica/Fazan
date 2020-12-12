@@ -10,3 +10,4 @@ C:\Users\anka_\Documents\GitHub\Fazan\fazan\Server\obj\Debug\Server.csproj.CoreC
 C:\Users\anka_\Documents\GitHub\Fazan\fazan\Server\obj\Debug\Server.csproj.CopyComplete
 C:\Users\anka_\Documents\GitHub\Fazan\fazan\Server\obj\Debug\Server.exe
 C:\Users\anka_\Documents\GitHub\Fazan\fazan\Server\obj\Debug\Server.pdb
+C:\Users\anka_\Documents\GitHub\Fazan\fazan\Server\obj\Debug\Server.MainFormServer.resources

@@ -62,7 +62,7 @@
             this.txtHost.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHost.Location = new System.Drawing.Point(98, 48);
             this.txtHost.Name = "txtHost";
-            this.txtHost.Size = new System.Drawing.Size(115, 29);
+            this.txtHost.Size = new System.Drawing.Size(124, 29);
             this.txtHost.TabIndex = 2;
             this.txtHost.Text = "127.0.0.1";
             // 
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 238);
+            this.ClientSize = new System.Drawing.Size(628, 259);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);

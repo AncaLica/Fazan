@@ -35,11 +35,11 @@ namespace Server
             txtStatus.Invoke((MethodInvoker)delegate ()
             {
                 txtStatus.Text += e.MessageString;
-                e.ReplyLine(string.Format("Tu ai spus: {0}", e.MessageString));
+                e.ReplyLine(string.Format(e.MessageString)); //asta se trimite la client
             });
 
         }
-        public  string GetLocalIPAddress()
+        public  string GetLocalIPAddress() //functie pt a lua ip-ul de pe leptopul tau
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
             foreach (var ip in host.AddressList)
@@ -55,14 +55,18 @@ namespace Server
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
-            txtStatus.Text = "Server Starting...";
-            
+            txtStatus.Text = "Server Starting..." + Environment.NewLine;
+
+            MainFormServer MFS = new MainFormServer();
+            MFS.Show();
+
             System.Net.IPAddress ip = System.Net.IPAddress.Parse(GetLocalIPAddress());
             server.Start(ip, Convert.ToInt32(txtPort.Text));
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            txtStatus.Text = "Server Stop..." + Environment.NewLine;
             if (server.IsStarted)
                 server.Stop();
         }

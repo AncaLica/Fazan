@@ -1,5 +1,4 @@
-﻿using fazan.Classes;
-using SimpleTCP;
+﻿using SimpleTCP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,18 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace fazan
+namespace Server
 {
-    public partial class MainForm : Form
+    public partial class MainFormServer : Form
     {
-        public MainForm()
+        public MainFormServer()
         {
             InitializeComponent();
         }
-
         SimpleTcpClient client;
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainFormServer_Load(object sender, EventArgs e)
         {
             txtHost.Text = GetLocalIPAddress();
             client = new SimpleTcpClient();
@@ -49,23 +46,20 @@ namespace fazan
         {
             txtImportantWord.Invoke((MethodInvoker)delegate ()
             {
-                txtImportantWord.Text = e.MessageString; // afisare cuvant trimis
+                txtImportantWord.Text = e.MessageString;
 
             });
         }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
             /*---------client----------*/
-            client.Connect(txtHost.Text,Convert.ToInt32(txtPort.Text));
-            client.WriteLineAndGetReply(txtContinuationWord.Text,TimeSpan.FromSeconds(3));
+            client.Connect(txtHost.Text, Convert.ToInt32(txtPort.Text));
+            client.WriteLineAndGetReply(txtContinuationWord.Text, TimeSpan.FromSeconds(3));
 
 
             /*--------------*/
 
-            GameController GC = new GameController();
-            GC.SendInput(txtImportantWord.Text+txtContinuationWord.Text);
-           
             
         }
 

@@ -44,6 +44,7 @@
             // 
             // txtContinuationWord
             // 
+            this.txtContinuationWord.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContinuationWord.Location = new System.Drawing.Point(222, 156);
             this.txtContinuationWord.Multiline = true;
             this.txtContinuationWord.Name = "txtContinuationWord";
@@ -92,6 +93,8 @@
             // txtImportantWord
             // 
             this.txtImportantWord.Enabled = false;
+            this.txtImportantWord.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImportantWord.ForeColor = System.Drawing.Color.Red;
             this.txtImportantWord.Location = new System.Drawing.Point(143, 156);
             this.txtImportantWord.Multiline = true;
             this.txtImportantWord.Name = "txtImportantWord";
@@ -119,9 +122,9 @@
             // txtHost
             // 
             this.txtHost.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHost.Location = new System.Drawing.Point(101, 12);
+            this.txtHost.Location = new System.Drawing.Point(79, 12);
             this.txtHost.Name = "txtHost";
-            this.txtHost.Size = new System.Drawing.Size(115, 29);
+            this.txtHost.Size = new System.Drawing.Size(146, 29);
             this.txtHost.TabIndex = 33;
             this.txtHost.Text = "127.0.0.1";
             // 
@@ -139,7 +142,7 @@
             // 
             this.lblHost.AutoSize = true;
             this.lblHost.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHost.Location = new System.Drawing.Point(35, 15);
+            this.lblHost.Location = new System.Drawing.Point(13, 15);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(49, 22);
             this.lblHost.TabIndex = 31;
