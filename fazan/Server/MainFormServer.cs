@@ -23,9 +23,9 @@ namespace Server
         private void MainFormServer_Load(object sender, EventArgs e)
         {
             txtHost.Text = GetLocalIPAddress();
-            client = new SimpleTcpClient();
-            client.StringEncoder = Encoding.UTF8;
-            client.DataReceived += Client_DataReceived;
+            //client = new SimpleTcpClient();
+            //client.StringEncoder = Encoding.UTF8;
+            //client.DataReceived += Client_DataReceived;
         }
 
         public string GetLocalIPAddress()
@@ -42,20 +42,20 @@ namespace Server
 
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
-        private void Client_DataReceived(object sender, SimpleTCP.Message e)
-        {
-            txtImportantWord.Invoke((MethodInvoker)delegate ()
-            {
-                txtImportantWord.Text = e.MessageString;
+        //private void Client_DataReceived(object sender, SimpleTCP.Message e)
+        //{
+        //    txtImportantWord.Invoke((MethodInvoker)delegate ()
+        //    {
+        //        txtImportantWord.Text = e.MessageString;
 
-            });
-        }
+        //    });
+        //}
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             /*---------client----------*/
-            client.Connect(txtHost.Text, Convert.ToInt32(txtPort.Text));
-            client.WriteLineAndGetReply(txtContinuationWord.Text, TimeSpan.FromSeconds(3));
+            //client.Connect(txtHost.Text, Convert.ToInt32(txtPort.Text));
+            //client.WriteLineAndGetReply(txtContinuationWord.Text, TimeSpan.FromSeconds(3));
 
 
             /*--------------*/

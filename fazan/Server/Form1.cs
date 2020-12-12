@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -24,21 +25,21 @@ namespace Server
         private void Form1_Load(object sender, EventArgs e)
         {
             GetLocalIPAddress();
-            server =new SimpleTcpServer();
-            server.Delimiter = 0x13; //enter
-            server.StringEncoder = Encoding.UTF8;
-            server.DataReceived += Server_DataRecived;
+            //server =new SimpleTcpServer();
+            //server.Delimiter = 0x13; //enter
+            //server.StringEncoder = Encoding.UTF8;
+            //server.DataReceived += Server_DataRecived;
         }
 
-        private void Server_DataRecived(object sender, SimpleTCP.Message e)
-        {
-            txtStatus.Invoke((MethodInvoker)delegate ()
-            {
-                txtStatus.Text += e.MessageString;
-                e.ReplyLine(string.Format(e.MessageString)); //asta se trimite la client
-            });
+        //private void Server_DataRecived(object sender, SimpleTCP.Message e)
+        //{
+        //    txtStatus.Invoke((MethodInvoker)delegate ()
+        //    {
+        //        txtStatus.Text += e.MessageString + Environment.NewLine;
+        //        e.ReplyLine(string.Format(e.MessageString)); //asta ii ce se trimite
+        //    });
 
-        }
+        //}
         public  string GetLocalIPAddress() //functie pt a lua ip-ul de pe leptopul tau
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -53,15 +54,24 @@ namespace Server
 
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
+
+        TcpClient client;
+        StreamReader StrToReceive;
+        StreamWriter StrToWrite;
+        string recieve;
+        string textToSend;
         private void btnStart_Click(object sender, EventArgs e)
         {
             txtStatus.Text = "Server Starting..." + Environment.NewLine;
 
-            MainFormServer MFS = new MainFormServer();
-            MFS.Show();
+            TcpListener listener = new TcpListener(IPAddress.Any, int.Parse(txtPort.Text));
+            listener.Start();
+            client = listener.AcceptTcpClient();
+            StrToReceive = new StreamReader(client.GetStream());
+            StrToWrite = new StreamWriter(client.GetStream());
+            StrToWrite.AutoFlush = true;
 
-            System.Net.IPAddress ip = System.Net.IPAddress.Parse(GetLocalIPAddress());
-            server.Start(ip, Convert.ToInt32(txtPort.Text));
+           
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -69,6 +79,35 @@ namespace Server
             txtStatus.Text = "Server Stop..." + Environment.NewLine;
             if (server.IsStarted)
                 server.Stop();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (txtContinuationWord.Text != "")
+            {
+                textToSend = txtContinuationWord.Text;
+            }
+            txtContinuationWord.Text = "";
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (client.Connected)
+            {
+                try
+                {
+                    recieve = StrToReceive.ReadLine();
+                    txtImportantWord.Invoke(new MethodInvoker(delegate ()
+                    {
+                        txtImportantWord.Text = recieve;
+                    }));
+                    recieve = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
         }
     }
 }

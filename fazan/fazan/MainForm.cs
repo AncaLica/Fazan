@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -21,14 +22,18 @@ namespace fazan
             InitializeComponent();
         }
 
-        SimpleTcpClient client;
+        TcpClient client;
+        StreamReader StrToReceive;
+        StreamWriter StrToWrite;
+        string recieve;
+        string textToSend;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             txtHost.Text = GetLocalIPAddress();
-            client = new SimpleTcpClient();
-            client.StringEncoder = Encoding.UTF8;
-            client.DataReceived += Client_DataReceived;
+            //client = new SimpleTcpClient();
+            //client.StringEncoder = Encoding.UTF8;
+            //client.DataReceived += Client_DataReceived;
         }
 
         public string GetLocalIPAddress()
@@ -45,22 +50,23 @@ namespace fazan
 
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
-        private void Client_DataReceived(object sender, SimpleTCP.Message e)
-        {
-            txtImportantWord.Invoke((MethodInvoker)delegate ()
-            {
-                txtImportantWord.Text = e.MessageString; // afisare cuvant trimis
+        //private void Client_DataReceived(object sender, SimpleTCP.Message e)
+        //{
+        //    txtImportantWord.Invoke((MethodInvoker)delegate ()
+        //    {
+        //        txtImportantWord.Text = e.MessageString; // afisare cuvant trimis
 
-            });
-        }
+        //    });
+        //}
         private void btnSubmit_Click(object sender, EventArgs e)
         {
 
             /*---------client----------*/
-            client.Connect(txtHost.Text,Convert.ToInt32(txtPort.Text));
-            client.WriteLineAndGetReply(txtContinuationWord.Text,TimeSpan.FromSeconds(3));
-
-
+            if (txtContinuationWord.Text!="")
+            {
+                textToSend = txtContinuationWord.Text;
+            }
+            txtContinuationWord.Text = "";
             /*--------------*/
 
             GameController GC = new GameController();
@@ -72,6 +78,46 @@ namespace fazan
         private void btnConnect_Click(object sender, EventArgs e)
         {
             btnConnect.Enabled = false;
+            client = new TcpClient();
+            IPEndPoint ipEnd = new IPEndPoint(IPAddress.Parse(txtHost.Text), int.Parse(txtPort.Text));
+            try
+            {
+                client.Connect(ipEnd);
+                if (client.Connected)
+                {
+                    txtStatus.Text = "Connected to server"+ Environment.NewLine;
+                    StrToReceive = new StreamReader(client.GetStream());
+                    StrToWrite = new StreamWriter(client.GetStream());
+                    StrToWrite.AutoFlush = true;
+                    backgroundWorker1.RunWorkerAsync();
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (client.Connected)
+            {
+                try {
+                    recieve = StrToReceive.ReadLine();
+                    txtImportantWord.Invoke(new MethodInvoker(delegate ()
+                    {
+                        txtImportantWord.Text = recieve;
+                    }));
+                    recieve = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+
     }
 }

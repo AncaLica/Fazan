@@ -40,6 +40,8 @@
             this.lblPort = new System.Windows.Forms.Label();
             this.lblHost = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // txtContinuationWord
@@ -158,11 +160,26 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
+            // txtStatus
+            // 
+            this.txtStatus.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.Location = new System.Drawing.Point(143, 308);
+            this.txtStatus.Multiline = true;
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtStatus.Size = new System.Drawing.Size(299, 83);
+            this.txtStatus.TabIndex = 36;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 316);
+            this.ClientSize = new System.Drawing.Size(551, 421);
+            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.txtPort);
             this.Controls.Add(this.txtHost);
@@ -198,6 +215,8 @@
         private System.Windows.Forms.Label lblPort;
         private System.Windows.Forms.Label lblHost;
         private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

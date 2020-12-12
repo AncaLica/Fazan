@@ -35,6 +35,14 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtImportantWord = new System.Windows.Forms.TextBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.txtFazan = new System.Windows.Forms.TextBox();
+            this.btnBlocat = new System.Windows.Forms.Button();
+            this.lblInput = new System.Windows.Forms.Label();
+            this.txtContinuationWord = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // lblHost
@@ -98,18 +106,97 @@
             // txtStatus
             // 
             this.txtStatus.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(36, 97);
+            this.txtStatus.Location = new System.Drawing.Point(96, 397);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtStatus.Size = new System.Drawing.Size(556, 122);
+            this.txtStatus.Size = new System.Drawing.Size(449, 82);
             this.txtStatus.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(177, 201);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "FAZAN ";
+            // 
+            // txtImportantWord
+            // 
+            this.txtImportantWord.Enabled = false;
+            this.txtImportantWord.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImportantWord.ForeColor = System.Drawing.Color.Red;
+            this.txtImportantWord.Location = new System.Drawing.Point(172, 250);
+            this.txtImportantWord.Multiline = true;
+            this.txtImportantWord.Name = "txtImportantWord";
+            this.txtImportantWord.Size = new System.Drawing.Size(73, 50);
+            this.txtImportantWord.TabIndex = 15;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(449, 250);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(66, 50);
+            this.btnSubmit.TabIndex = 14;
+            this.btnSubmit.Text = "Trimite raspuns";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // txtFazan
+            // 
+            this.txtFazan.Enabled = false;
+            this.txtFazan.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFazan.ForeColor = System.Drawing.Color.Red;
+            this.txtFazan.Location = new System.Drawing.Point(251, 189);
+            this.txtFazan.Name = "txtFazan";
+            this.txtFazan.Size = new System.Drawing.Size(155, 36);
+            this.txtFazan.TabIndex = 13;
+            // 
+            // btnBlocat
+            // 
+            this.btnBlocat.Location = new System.Drawing.Point(219, 314);
+            this.btnBlocat.Name = "btnBlocat";
+            this.btnBlocat.Size = new System.Drawing.Size(224, 39);
+            this.btnBlocat.TabIndex = 12;
+            this.btnBlocat.Text = "M-am blocat";
+            this.btnBlocat.UseVisualStyleBackColor = true;
+            // 
+            // lblInput
+            // 
+            this.lblInput.AutoSize = true;
+            this.lblInput.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInput.Location = new System.Drawing.Point(54, 260);
+            this.lblInput.Name = "lblInput";
+            this.lblInput.Size = new System.Drawing.Size(107, 26);
+            this.lblInput.TabIndex = 11;
+            this.lblInput.Text = "Input text";
+            // 
+            // txtContinuationWord
+            // 
+            this.txtContinuationWord.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContinuationWord.Location = new System.Drawing.Point(251, 250);
+            this.txtContinuationWord.Multiline = true;
+            this.txtContinuationWord.Name = "txtContinuationWord";
+            this.txtContinuationWord.Size = new System.Drawing.Size(192, 50);
+            this.txtContinuationWord.TabIndex = 10;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 259);
+            this.ClientSize = new System.Drawing.Size(653, 543);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtImportantWord);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.txtFazan);
+            this.Controls.Add(this.btnBlocat);
+            this.Controls.Add(this.lblInput);
+            this.Controls.Add(this.txtContinuationWord);
             this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
@@ -135,6 +222,14 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtImportantWord;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.TextBox txtFazan;
+        private System.Windows.Forms.Button btnBlocat;
+        private System.Windows.Forms.Label lblInput;
+        private System.Windows.Forms.TextBox txtContinuationWord;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
