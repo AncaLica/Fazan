@@ -1,0 +1,13 @@
+C:\Users\anka_\Desktop\fazan\fazan\bin\Debug\fazan.exe.config
+C:\Users\anka_\Desktop\fazan\fazan\bin\Debug\fazan.exe
+C:\Users\anka_\Desktop\fazan\fazan\bin\Debug\fazan.pdb
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.csprojAssemblyReference.cache
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.Properties.Resources.resources
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.csproj.GenerateResource.cache
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.csproj.CoreCompileInputs.cache
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.exe
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.pdb
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.MainForm.resources
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.Start.resources
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.info.resources
+C:\Users\anka_\Desktop\fazan\fazan\obj\Debug\fazan.reguliJoc.resources
