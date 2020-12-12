@@ -35,18 +35,16 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtImportantWord = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.txtHost = new System.Windows.Forms.TextBox();
+            this.lblPort = new System.Windows.Forms.Label();
+            this.lblHost = new System.Windows.Forms.Label();
+            this.btnConnect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtContinuationWord
             // 
-            this.txtContinuationWord.Location = new System.Drawing.Point(270, 122);
+            this.txtContinuationWord.Location = new System.Drawing.Point(222, 156);
             this.txtContinuationWord.Multiline = true;
             this.txtContinuationWord.Name = "txtContinuationWord";
             this.txtContinuationWord.Size = new System.Drawing.Size(192, 50);
@@ -56,7 +54,7 @@
             // 
             this.lblInput.AutoSize = true;
             this.lblInput.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInput.Location = new System.Drawing.Point(73, 132);
+            this.lblInput.Location = new System.Drawing.Point(25, 166);
             this.lblInput.Name = "lblInput";
             this.lblInput.Size = new System.Drawing.Size(107, 26);
             this.lblInput.TabIndex = 1;
@@ -64,7 +62,7 @@
             // 
             // btnBlocat
             // 
-            this.btnBlocat.Location = new System.Drawing.Point(238, 186);
+            this.btnBlocat.Location = new System.Drawing.Point(190, 220);
             this.btnBlocat.Name = "btnBlocat";
             this.btnBlocat.Size = new System.Drawing.Size(224, 39);
             this.btnBlocat.TabIndex = 3;
@@ -76,14 +74,14 @@
             this.txtFazan.Enabled = false;
             this.txtFazan.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFazan.ForeColor = System.Drawing.Color.Red;
-            this.txtFazan.Location = new System.Drawing.Point(270, 61);
+            this.txtFazan.Location = new System.Drawing.Point(222, 95);
             this.txtFazan.Name = "txtFazan";
             this.txtFazan.Size = new System.Drawing.Size(155, 36);
             this.txtFazan.TabIndex = 4;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(468, 122);
+            this.btnSubmit.Location = new System.Drawing.Point(420, 156);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(66, 50);
             this.btnSubmit.TabIndex = 5;
@@ -94,7 +92,7 @@
             // txtImportantWord
             // 
             this.txtImportantWord.Enabled = false;
-            this.txtImportantWord.Location = new System.Drawing.Point(191, 122);
+            this.txtImportantWord.Location = new System.Drawing.Point(143, 156);
             this.txtImportantWord.Multiline = true;
             this.txtImportantWord.Name = "txtImportantWord";
             this.txtImportantWord.Size = new System.Drawing.Size(73, 50);
@@ -103,88 +101,70 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(196, 73);
+            this.label2.Location = new System.Drawing.Point(148, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "FAZAN ";
             // 
-            // label1
+            // txtPort
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 281);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "FAZAN ";
+            this.txtPort.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPort.Location = new System.Drawing.Point(283, 11);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(115, 29);
+            this.txtPort.TabIndex = 34;
+            this.txtPort.Text = "8910";
             // 
-            // textBox2
+            // txtHost
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(205, 330);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(73, 50);
-            this.textBox2.TabIndex = 26;
+            this.txtHost.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHost.Location = new System.Drawing.Point(101, 12);
+            this.txtHost.Name = "txtHost";
+            this.txtHost.Size = new System.Drawing.Size(115, 29);
+            this.txtHost.TabIndex = 33;
+            this.txtHost.Text = "127.0.0.1";
             // 
-            // button1
+            // lblPort
             // 
-            this.button1.Location = new System.Drawing.Point(482, 330);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 50);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Trimite raspuns";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblPort.AutoSize = true;
+            this.lblPort.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPort.Location = new System.Drawing.Point(231, 15);
+            this.lblPort.Name = "lblPort";
+            this.lblPort.Size = new System.Drawing.Size(46, 22);
+            this.lblPort.TabIndex = 32;
+            this.lblPort.Text = "Port";
             // 
-            // textBox3
+            // lblHost
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Red;
-            this.textBox3.Location = new System.Drawing.Point(284, 269);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(155, 36);
-            this.textBox3.TabIndex = 24;
+            this.lblHost.AutoSize = true;
+            this.lblHost.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHost.Location = new System.Drawing.Point(35, 15);
+            this.lblHost.Name = "lblHost";
+            this.lblHost.Size = new System.Drawing.Size(49, 22);
+            this.lblHost.TabIndex = 31;
+            this.lblHost.Text = "Host";
             // 
-            // button2
+            // btnConnect
             // 
-            this.button2.Location = new System.Drawing.Point(252, 394);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(224, 39);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "M-am blocat";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(87, 340);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 26);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Input text";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(284, 330);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(192, 50);
-            this.textBox4.TabIndex = 21;
+            this.btnConnect.Location = new System.Drawing.Point(420, 11);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(79, 29);
+            this.btnConnect.TabIndex = 35;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 497);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
+            this.ClientSize = new System.Drawing.Size(538, 316);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.txtHost);
+            this.Controls.Add(this.lblPort);
+            this.Controls.Add(this.lblHost);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtImportantWord);
             this.Controls.Add(this.btnSubmit);
@@ -193,7 +173,8 @@
             this.Controls.Add(this.lblInput);
             this.Controls.Add(this.txtContinuationWord);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Client";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,13 +190,11 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtImportantWord;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPort;
+        private System.Windows.Forms.TextBox txtHost;
+        private System.Windows.Forms.Label lblPort;
+        private System.Windows.Forms.Label lblHost;
+        private System.Windows.Forms.Button btnConnect;
     }
 }
 

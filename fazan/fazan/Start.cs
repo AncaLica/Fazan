@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleTCP;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,10 @@ namespace fazan
         {
             InitializeComponent();
         }
+
        private void btnStartJoc_Click(object sender, EventArgs e)
         {
-            //+ connect to server + send name
+            btnStartJoc.Enabled = false;
 
             MainForm Mf = new MainForm();
             Mf.Show();
@@ -35,5 +37,12 @@ namespace fazan
             reguliJoc reg = new reguliJoc();
             reg.Show();
         }
+
+        private void Start_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+
     }
 }

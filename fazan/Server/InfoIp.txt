@@ -1,0 +1,3 @@
+﻿What is the IP address 127.0 0.1 used for?
+127.0. 0.1 is the loopback Internet protocol (IP) address also referred to as the localhost.
+The address is used to establish an IP connection to the same machine or computer being used by the end-user
